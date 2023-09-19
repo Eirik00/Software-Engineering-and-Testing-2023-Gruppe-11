@@ -1,5 +1,6 @@
 # Gruppe 17 Software Engineering and Testing 2023
 Dette er vår git side for gruppe oppgaven i Software Engineering and Testing 2023.
+![Fyr med datamaskin](https://media.tenor.com/lCP8U3IWX0wAAAAC/its-not-working-frame-order.gif)
 
 ### Gruppe Linker
 * [Prosjekt Documentasjon](https://docs.google.com/document/d/1b86m1NPi_fwYUP4YXiIEmlNyEDYfHKtz1t1oKoYdXrY/edit)
