@@ -10,7 +10,7 @@ Dette er vår git side for gruppe oppgaven i Software Engineering and Testing 20
 * [Milepælsplan](https://hiof.instructure.com/courses/7601/files/folder/Gruppeoppgaven?preview=1372914)
 * [Tips til Prosjektdokumentasjon](https://hiof.instructure.com/courses/7601/files/folder/Gruppeoppgaven?preview=1372915)
 
-### Gruppe Medlemer:
+### Gruppemedlemmer:
 * [Sondre](https://github.com/sondrekhammerborg)
 * [Krister](https://github.com/Kristerwh)
 * [Martin](https://github.com/MartinInformatikk)
