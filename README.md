@@ -16,3 +16,4 @@ Dette er vår git side for gruppe oppgaven i Software Engineering and Testing 20
 * [Krister](https://github.com/Kristerwh)
 * [Martin](https://github.com/MartinInformatikk)
 * [Eirik](https://github.com/Eirik00)
+* [Markus](https://github.com/MarkusDV)
