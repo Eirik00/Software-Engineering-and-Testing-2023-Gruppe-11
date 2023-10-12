@@ -38,6 +38,7 @@ function loginFunction() {
     }
 }
 
-
-// Eksportering til test
-module.exports = {loginFunction: loginFunction,loginUser: loginUser,loginSeller: loginSeller, loginAdmin: loginAdmin};
+if (typeof window === "undefined"){ // Vis vi skjører i node.js
+    // Eksportering til test
+    module.exports = {loginFunction: loginFunction,loginUser: loginUser,loginSeller: loginSeller, loginAdmin: loginAdmin};
+}
