@@ -5,4 +5,7 @@ test("sjekker admin login", () => {
 });
 test("sjekker bruker login", () => {
     expect(loginModule.loginUser("bruker1", "pass1")).toBe("user bruker1 pass1");
-})
+});
+test("sjekker seller login", () => {
+    expect(loginModule.loginSeller("selger1", "pass2")).toBe("seller selger1 pass2");
+});

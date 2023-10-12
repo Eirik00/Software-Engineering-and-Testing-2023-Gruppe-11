@@ -9,6 +9,10 @@ function loginUser(username, password) {
     return "user " + username + " " + password;
 }
 
+function loginSeller(username, password) {
+    console.log("seller: " + username + " " + password);
+    return "seller " + username + " " + password;
+}
 
 // Hoved login funksjonen
 function loginFunction() {
@@ -21,7 +25,13 @@ function loginFunction() {
         if(choice[i].checked){
             if(choice[i].value == "1"){         // Her ser den etter hvilken value elementet med "checked" har
                 loginUser(username.value, password.value);  // om det er 1 så er det bruker login
-            }else{
+            }
+            if (choice[i].checked){
+                if (choice[i].value == "2"){
+                    loginSeller(username.value, password.value);
+                }
+            }
+            else{
                 loginAdmin(username.value, password.value); // ellers er det admin
             }
         }
@@ -30,4 +40,4 @@ function loginFunction() {
 
 
 // Eksportering til test
-module.exports = {loginFunction: loginFunction,loginUser: loginUser,loginAdmin: loginAdmin};
+module.exports = {loginFunction: loginFunction,loginUser: loginUser,loginSeller: loginSeller, loginAdmin: loginAdmin};
