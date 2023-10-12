@@ -2,28 +2,41 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <script src="../../backend/login.js"></script>
     </head>
     <body>
-        <div>
-            <div>
-        <p>Login</p>
+        <header>
+            <h1>Tour Guide Heaven</h1>
+        </header>
+        <div class="center">
+            <div class="center">
+                <p>Login</p>
 
-        <!-- Login form // Trenger egt ikke å være en form så dette kan endres senere-->
-        <form>
-            Bruker:
-            <input type="radio" id="user" name="userChoice" value="1" checked="True">
-            Selger:
-            <input type="radio" id="seller" name="userChoice" value="2" checked="True">
-            Admin:
-            <input type="radio" id="admin" name="userChoice" value="3"><br>
-            Brukernavn:
-            <input type="text" id="username"><br>
-            Passord:
-            <input type="text" id="password"><br>
-            <input type="button" value="Submit" onclick="loginFunction();">
-        </form>
-    </div>
-    </div>
+                <!-- Login form // Trenger egt ikke å være en form så dette kan endres senere-->
+                <form>
+                    <div id="radiobtn">
+                        <a>Bruker:</a>
+                        <input type="radio" id="user" name="userChoice" value="1" checked="True">
+                        <a>Selger:</a>
+                        <input type="radio" id="seller" name="userChoice" value="2">
+                        <a>Admin:</a>
+                        <input type="radio" id="admin" name="userChoice" value="3">
+                    </div>
+                    <div id="user">
+                        <a>Brukernavn:</a>
+                        <input type="text" id="username">
+                    </div>
+                    <div id="pass">
+                        <a>Passord:</a>
+                        <input type="text" id="password">
+                    </div>
+                    <input type="button" value="Submit" onclick="loginFunction();">
+                </form>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2023 Our Marketplace</p>
+        </footer>
     </body>
 </html>

@@ -41,6 +41,12 @@ nav a {
     font-size: 18px;
 }
 
+login {
+    position: absolute;
+    right: 0;
+    
+}
+
 /* Style the main content */
 main {
     flex-grow: 1;
