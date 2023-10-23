@@ -1,4 +1,10 @@
-{
-  "name": "tur",
-  "price": 2000
-}
+[
+  {
+    "name": "tur 1",
+    "price": 2000
+  },
+  {
+    "name": "tur 2",
+    "price": 4500
+  }
+]

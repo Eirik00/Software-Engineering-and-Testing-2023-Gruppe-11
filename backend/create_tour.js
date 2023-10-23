@@ -1,12 +1,15 @@
 const fs = require("fs");
 
-function writeToJSON(tour) {
+function writeToJSON(tours) {
+
+  const toursToWrite = JSON.stringify(tours, null, 2);
     
-  fs.writeFile('backend/JSON/tours.json', JSON.stringify(tour, null, 2), 'utf8', (err) => {
+  fs.writeFile('backend/JSON/tours.json', toursToWrite, 'utf8', (err) => {
     if (err) {
       console.error('Error writing the file:', err);
     } else {
       console.log('Data has been written to tours.json');
+      
     }
   });
   }
@@ -31,9 +34,18 @@ function readFromJSON(){
     }
   }
 
-  var testTur = new Tour('tur', 2000);
+  
+  var testTur1 = new Tour('tur 1', 2000);
+  var testTur2= new Tour('tur 2', 4500);
 
-  writeToJSON(testTur);
+  const tours = [testTur1, testTur2];
+
+  writeToJSON(tours);
+
 
   readFromJSON();
 
+  if (typeof window === "undefined"){ // Vis vi skjører i node.js
+    // Eksportering til test
+    module.exports = {writeToJSON: writeToJSON,readFromJSON: readFromJSON};
+}
