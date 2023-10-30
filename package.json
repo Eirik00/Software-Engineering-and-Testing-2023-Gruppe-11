@@ -1,5 +1,9 @@
 {
     "scripts": {
         "test": "jest"
+    },
+    "dependencies": {
+        "jest": "^29.7.0",
+        "jsdom": "^22.1.0"
     }
 }
