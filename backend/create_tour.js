@@ -31,17 +31,8 @@ function readFromJSON() {
   });
 }
 
-class Tour {
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
-  }
-}
 
-var testTur1 = new Tour('tur 1', 2000);
-var testTur2 = new Tour('tur 2', 4500);
 
-const tours = [testTur1, testTur2];
 
 if (typeof window === "undefined") {
   // Vis vi skjører i node.js
