@@ -1,3 +1,4 @@
+//klasse for turer
 class Tour {
     constructor(id, owner_id, name, description, price, img, accsesibility) {
       this.id = id;  
