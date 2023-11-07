@@ -2,16 +2,21 @@ body {
     background-color: #EFEFEF;
 }
 
-.center {
+#center {
     margin: auto;
     margin-top: 0;
     padding: 0.8vw;
     width: 50%;
     background-color: #FFF;
-    
+    display: flex;
+    justify-content: space-between;
 }
 
-.center p {
+#center div{
+    margin: 20px;
+}
+
+#center .header {
     text-align: center;
     font-size: 30px;
 }
@@ -21,10 +26,18 @@ div div form {
 form div {
     margin: 5px;
 }
-form input[type="text"] {
+form input[type="text"], form input[type="password"] {
     float: right;
 }
 form input[type="button"] {
     float: right;
 }
 
+#right {
+    background-color: #EEE;
+}
+
+#errormsg, #Cerrormsg {
+    font-size: 14px;
+    color: #f00;
+}

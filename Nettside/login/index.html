@@ -9,9 +9,9 @@
         <header>
             <h1>Tour Guide Heaven</h1>
         </header>
-        <div class="center">
-            <div class="center">
-                <p>Login</p>
+        <div id="center">
+            <div id="left">
+                <p class="header">Login</p>
 
                 <!-- Login form // Trenger egt ikke å være en form så dette kan endres senere-->
                 <form>
@@ -29,9 +29,41 @@
                     </div>
                     <div id="pass">
                         <a>Passord:</a>
-                        <input type="text" id="password">
+                        <input type="password" id="password">
                     </div>
                     <input type="button" value="Submit" onclick="loginFunction();">
+                    <p id="errormsg"></p>
+                </form>
+            </div>
+            <div id="right">
+                <p class="header">Lag bruker</p>
+
+                <!-- Login form // Trenger egt ikke å være en form så dette kan endres senere-->
+                <form>
+                    <div id="radiobtn">
+                        <a>Bruker:</a>
+                        <input type="radio" id="user" name="CuserChoice" value="1" checked="True">
+                        <a>Selger:</a>
+                        <input type="radio" id="seller" name="CuserChoice" value="2">
+                    </div>
+                    <div id="user">
+                        <a>Brukernavn:</a>
+                        <input type="text" id="Cusername">
+                    </div>
+                    <div id="email">
+                        <a>E-post:</a>
+                        <input type="text" id="Cemail">
+                    </div>
+                    <div id="pass">
+                        <a>Passord:</a>
+                        <input type="password" id="Cpassword">
+                    </div>
+                    <div id="Vpass">
+                        <a>Bekreft Passord:</a>
+                        <input type="password" id="Cfirmpassword">
+                    </div>
+                    <input type="button" value="Submit" onclick="createUserFunc();">
+                    <p id="Cerrormsg"></p>
                 </form>
             </div>
         </div>
