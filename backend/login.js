@@ -177,7 +177,9 @@ function createUserFunc() {
 }
 
 
-if (typeof window === "undefined"){ // Vis vi skjører i node.js
-    // Eksportering til test
-    module.exports = {loginFunction: loginFunction,loginUser: loginUser,loginSeller: loginSeller, loginAdmin: loginAdmin};
-}
+module.exports = {
+    loginFunction: loginFunction,
+    loginUser: loginUser,
+    loginSeller: loginSeller,
+    loginAdmin: loginAdmin
+};
