@@ -1,4 +1,3 @@
-
 const setLocalStorage = (id, data) => {
     window.mock.setItem(id, JSON.stringify(data));
 };
@@ -7,7 +6,7 @@ test("Adding data works", () => {
     const mockId = "1";
     const mockJson = { data: "JSON" };
     setLocalStorage(mockId, mockJson);
-    expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockJson));
+    expect(mock.getItem(mockId)).toEqual(JSON.stringify(mockJson));
 });
 
 describe("Set local storage item", () => {
@@ -19,7 +18,7 @@ describe("Set local storage item", () => {
         const mockId = "123";
         const mockJson = { data: "JSON" };
         setLocalStorage(mockId, mockJson);
-        expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockJson));
+        expect(mock.getItem(mockId)).toEqual(JSON.stringify(mockJson));
     });
 
     test("Overwriting works", () => {
@@ -28,7 +27,7 @@ describe("Set local storage item", () => {
         const mockNewData = { data: "new JSON" };
 
         window.mock.setItem(mockId, JSON.stringify(mockOldData));
-        expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockOldData));
+        expect(mock.getItem(mockId)).toEqual(JSON.stringify(mockOldData));
 
         setLocalStorage(mockId, mockNewData);
         window.mock.setItem(mockId, JSON.stringify(mockNewData));

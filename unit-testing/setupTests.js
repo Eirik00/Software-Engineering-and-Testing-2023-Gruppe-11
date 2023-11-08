@@ -1,4 +1,4 @@
-global.localStorage = (function () {
+global.localStorageMock = (function () {
     let store = {};
 
     return {
@@ -24,4 +24,4 @@ global.localStorage = (function () {
     };
 })();
 
-Object.defineProperty(window, "mock", { value: localStorage });
+Object.defineProperty(window, "mock", { value: localStorageMock });
