@@ -4,6 +4,7 @@ if(JSON.parse(localStorage.getItem("tourList")) !== null){
 }
 
 const bruker = JSON.parse(localStorage.getItem("login"));
+const error = document.getElementById("errormsg");
 
 function saveTour() {
     const name = document.getElementById("name").value;
@@ -19,6 +20,9 @@ function saveTour() {
         tourList.push(createTour(bruker.username, name, description, price, "", accessibility));
         console.log("Hey")
         localStorage.setItem("tourList", JSON.stringify(tourList)); // oppdaterer otur array lista
+    }
+    else if(name = ""){
+        error.innerHTML = "Tur mangler navn.";
     }
 }
 
