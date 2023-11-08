@@ -3,33 +3,26 @@ if(JSON.parse(localStorage.getItem("tourList")) !== null){
     tourList = JSON.parse(localStorage.getItem("tourList"));
 }
 
+if(localStorage.getItem("login") === null){
+    window.location.href="../login/index.html";
+}
 const bruker = JSON.parse(localStorage.getItem("login"));
+
 
 
 function saveTour() {
     const error = document.getElementById("errormsg");
     const name = document.getElementById("name").value;
-    console.log(name);
     const description = document.getElementById("description").value;
-    console.log(description);
     const price = document.getElementById("price").value;
-    console.log(price);
     const accessibility = document.getElementById("accessibility").checked;
-    console.log(accessibility);
 
-    if (name != "" || description != "" || price != "") {
+    if (name != "" && description != "" && price != "") {
         tourList.push(createTour(bruker.username, name, description, price, "", accessibility));
         console.log("Hey")
         localStorage.setItem("tourList", JSON.stringify(tourList)); // oppdaterer otur array lista
-    }
-    else if(name == ""){
-        error.innerHTML = "Tur mangler navn.";
-    }
-    else if(description == ""){
-        error.innerHTML = "Tur mangler beskrivelse.";
-    }
-    else if(price == ""){
-        error.innerHTML = "Tur mangler pris.";
+    }else{
+        error.innerHTML = "* Du må fylle ut alle feltene!"
     }
 }
 
