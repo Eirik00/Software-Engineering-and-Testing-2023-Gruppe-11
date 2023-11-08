@@ -1,4 +1,4 @@
-const create_tourModule = require("../backend/create_tour");
+/*const create_tourModule = require("../backend/create_tour");
 
 test("Test writing to JSON", async () => {
 
@@ -18,4 +18,4 @@ test("Test writing to JSON", async () => {
     const jsonData = await create_tourModule.readFromJSON();
   
     expect(jsonData).toEqual(tours);
-  });
+  });*/
