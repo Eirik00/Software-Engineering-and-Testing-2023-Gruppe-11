@@ -7,6 +7,7 @@ var allTours = [];
             const displayNames = ["name1", "name2", "name3", "name4"];
             const displayDesc = ["desc1", "desc2", "desc3", "desc4"];
             const displayPrices = ["price1", "price2", "price3", "price4"];
+            const displayAccessibility = ["accessibility1", "accessibility2", "accessibility3", "accessibility4"]
 
             for (let i = 0; i < localStorage.getItem("tourList").length; i++){
                 let tempName = document.getElementById(displayNames[i]);
@@ -17,6 +18,13 @@ var allTours = [];
 
                 let tempPrice = document.getElementById(displayPrices[i]);
                 tempPrice.innerHTML = "pris: " + allTours[i].price;
+
+                let tempAccessibility = document.getElementById(displayAccessibility[i]);
+              
+                if (allTours[i].accessibility == true){
+                    tempAccessibility.innerHTML = "Handicap-Tilrettelagt: Ja"
+                }
+                else {tempAccessibility.innerHTML = "Handicap-Tilrettelagt: Nei"}
             }
 
 
