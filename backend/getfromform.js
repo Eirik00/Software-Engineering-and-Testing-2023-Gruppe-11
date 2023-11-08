@@ -1,4 +1,7 @@
 var tourList = localStorage.getItem("tourList");
+if(localStorage.getItem("tourList") === null){
+    tourList = [];
+}
 if(!tourList){
     tourList = [];
     console.log("funker ikke")
