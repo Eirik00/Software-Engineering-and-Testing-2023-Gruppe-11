@@ -2,11 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Tour</title>
     <script src="../../backend/getfromform.js"></script>
     <script src="../../backend/createtour.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+    <header>
+        <h1>Welcome to Tour Guide Heaven</h1>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home <i class="fa fa-home icon"></i></a></li>
+                <li><a href="#">Categories <i class="fa fa-bars icon"></i></a></li>
+                <li><a href="#">Cart <i class="fa fa-shopping-cart icon"></i></a></li>
+                <li><a href="index.html">Create New Tour <i class="fa fa-cloud-upload icon"></i></a></li>
+            </ul>
+            <div id="loginornot"></div>
+            <script src="../backend/logout.js"></script>
+        </nav>
+    </header>
+
     <form id="new_tour">
         <div>
             <a>Tur navn:</a>
@@ -23,7 +42,7 @@
 
         <div>
             <label name="accessibility">Handicap Tilrettelagt</label>
-            <input type="checkbox" name="accessibility "id="accessibility">
+            <input type="checkbox" name="accessibility" id="accessibility">
            
         </div>
 
@@ -35,6 +54,11 @@
     </form>
 
     <br>
-    <p id="errormsg">placeholder error</p>
+    <p id="errormsg"></p>
+
+    <footer>
+        <p>&copy; 2023 Our Marketplace</p>
+    </footer>
+
 </body>
 </html>
