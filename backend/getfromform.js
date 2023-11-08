@@ -1,11 +1,9 @@
-var tourList = localStorage.getItem("tourList");
-if(localStorage.getItem("tourList") === null){
-    tourList = [];
+var tourList = [];
+if(JSON.parse(localStorage.getItem("tourList")) !== null){
+    tourList = JSON.parse(localStorage.getItem("tourList"));
 }
-if(!tourList){
-    tourList = [];
-    console.log("funker ikke")
-}
+
+const bruker = JSON.parse(localStorage.getItem("login"));
 
 function saveTour() {
     const name = document.getElementById("name").value;
@@ -17,20 +15,10 @@ function saveTour() {
     const accessibility = document.getElementById("accessibility").checked;
     console.log(accessibility);
 
-    if (name && description && price) {
-
-   
-        localStorage.setItem(tourList.length, JSON.stringify(createTour(
-            
-            0, //placeholder for owner id
-            name, //navnet av touren
-            description, // description av touren
-            price, // prisen av touren
-            "placeholder-bilde.png", // tour bilde
-            accessibility // tiljengelighet av touren
-        )));
-        tourList.push(tourList[tourList.length-1]+1); // øker tour array lista
-        localStorage.setItem("tourList", tourList); // oppdaterer otur array lista
+    if (name != "" || description != "" || price != "") {
+        tourList.push(createTour(bruker.username, name, description, price, "", accessibility));
+        console.log("Hey")
+        localStorage.setItem("tourList", JSON.stringify(tourList)); // oppdaterer otur array lista
     }
 }
 
