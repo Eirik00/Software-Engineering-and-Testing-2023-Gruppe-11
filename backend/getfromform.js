@@ -4,9 +4,10 @@ if(JSON.parse(localStorage.getItem("tourList")) !== null){
 }
 
 const bruker = JSON.parse(localStorage.getItem("login"));
-const error = document.getElementById("errormsg");
+
 
 function saveTour() {
+    const error = document.getElementById("errormsg");
     const name = document.getElementById("name").value;
     console.log(name);
     const description = document.getElementById("description").value;
@@ -21,8 +22,14 @@ function saveTour() {
         console.log("Hey")
         localStorage.setItem("tourList", JSON.stringify(tourList)); // oppdaterer otur array lista
     }
-    else if(name = ""){
+    else if(name == ""){
         error.innerHTML = "Tur mangler navn.";
+    }
+    else if(description == ""){
+        error.innerHTML = "Tur mangler beskrivelse.";
+    }
+    else if(price == ""){
+        error.innerHTML = "Tur mangler pris.";
     }
 }
 
