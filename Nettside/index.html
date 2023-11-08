@@ -6,6 +6,7 @@
         <title>Marketplace</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     </head>
     <body>
         <header>
@@ -22,26 +23,37 @@
             </nav>
         </header>
 
-        <main>
-            <section class="tour">
-                <img src="bilder/forside/tour1.jfif" alt="Tour 1">
-                <h2>Tour 1</h2>
-                <p>Lorem ipsum ditsum datsum.</p>
-                <p>Price: 3000kr</p>
-                <button>Add to Cart</button>
-            </section>
+        <!-- Ikke dynamisk, viser kun antall turer allerede opprettet i HTML, må endres-->
+        <div id="tours">
+            <div class="tour" id="tour1">
+                <p class="name" id="name1"></p>
+                <p class="desc" id="desc1"></p>
+                <p class="price" id="price1"></p>
+            </div>
 
-            <section class="tour">
-                <img src="bilder/forside/tour2.jfif" alt="Tour 2">
-                <h2>Tour 2</h2>
-                <p>Lorem ipsum ditsum datsum.</p>
-                <p>Price: 999kr</p>
-                <button>Add to Cart</button>
-            </section>
+            <div class="tour" id="tour2">
+                <p class="name" id="name2"></p>
+                <p class="desc" id="desc2"></p>
+                <p class="price" id="price2"></p>
+            </div>
 
-            <!-- Add more product sections as needed -->
-        </main>
+            <div class="tour" id="tour3">
+                <p class="name" id="name3"></p>
+                <p class="desc" id="desc3"></p>
+                <p class="price" id="price3"></p>
+            </div>
 
+            <div class="tour" id="tour4">
+                <p class="name" id="name4"></p>
+                <p class="desc" id="desc4"></p>
+                <p class="price" id="price4"></p>
+            </div>
+        </div>
+
+        <script src="../backend/get_tours.js"></script> 
+        <!-- Legger script her for at den skal leses inn etter at HTML taggene er opprettet-->
+       
+        
         <footer>
             <p>&copy; 2023 Our Marketplace</p>
         </footer>
