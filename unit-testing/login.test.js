@@ -19,12 +19,16 @@ describe("login with different users", () => {
     })
 })
 
-describe("loginfunction test", () => {
+describe("Create user function tests", () => {
+
+});
+
+describe("loginfunction tests", () => {
 
     document.body.innerHTML = fs.readFileSync("./Nettside/login/index.html", 'utf-8')
     let error = document.getElementById("errormsg")
 
-    test("Checking if error is produced correctly with user", () => {
+    test("Checking if error is produced correctly with user no username or pass", () => {
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
         document.getElementById('user').checked = true;
@@ -34,7 +38,7 @@ describe("loginfunction test", () => {
 
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })
-    test("Checking if error is produced correctly with seller", () => {
+    test("Checking if error is produced correctly with seller no username or pass", () => {
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
         document.getElementById('user').checked = false;
@@ -44,7 +48,7 @@ describe("loginfunction test", () => {
 
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })
-    test("Checking if error is produced correctly with admin", () => {
+    test("Checking if error is produced correctly with admin no username or pass", () => {
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
         document.getElementById('user').checked = false;
@@ -54,6 +58,14 @@ describe("loginfunction test", () => {
 
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })
+    /*
+    test("Error if username and or password is wrong for user", () => {});
+    test("Error if username and or password is wrong for seller", () => {});
+    test("Error if username and or password is wrong for admin", () => {});
+    test("Returning user if username and password matches for user", () => {});
+    test("Returning user if username and password matches for seller", () => {});
+    test("Returning user if username and password matches for admin", () => {});
+     */
 });
 
 

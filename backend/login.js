@@ -1,4 +1,4 @@
-let userList = [
+var preset = [
 //////////////////[Predefined users]///////////////////// [syntax]
 {                                                      // {
     username: "AverageJoe2",                           //   username: "{UserName}",
@@ -20,8 +20,15 @@ let userList = [
 
 ];
 
-if(localStorage.getItem("userList") !== null){
-    userList = JSON.parse(localStorage.getItem("userList"));
+const users = "preset"
+const loggedIn = "login"
+
+function localStorageSetter(key, list) {
+    localStorage.setItem(key, JSON.stringify(list));
+}
+
+if(localStorage.getItem("preset") !== null){
+    preset = JSON.parse(localStorage.getItem("preset"));
 }
 
 // Denne prosessen kan være tungvindt siden dette må gjøres via javascript. Den er heller ikke sikker men det eneste måten vi ser mulig foreløpig.
@@ -44,7 +51,7 @@ function loginUser(username, password) {
 
 
 // Hoved login funksjonen
-function loginFunction() {
+function loginFunction(userList) {
     const error = document.getElementById("errormsg");
     const username = document.getElementById("username");     // Henter ut html elementet med id=username
     const password = document.getElementById("password");     // Henter ut html elementet med id=password
@@ -80,7 +87,7 @@ function loginFunction() {
                         loginUser(username.value, password.value);  // om det er 1 så er det bruker login
                         
                         loggedinUser.typeUser = "user";
-                        localStorage.setItem("login", JSON.stringify(loggedinUser));
+                        localStorageSetter(loggedIn, loggedinUser);
                         window.location.href = "../index.html";
                     }
                     else if (choice[i].value == "2"){
@@ -90,7 +97,7 @@ function loginFunction() {
                             error.innerHTML = "* Du er ikke en seller";
                         }else{
                             loggedinUser.typeUser = "seller";
-                            localStorage.setItem("login", JSON.stringify(loggedinUser));
+                            localStorageSetter(loggedIn, loggedinUser);
                             window.location.href = "../index.html";
                         }
                     }
@@ -100,7 +107,7 @@ function loginFunction() {
                         if(loggedinUser.typeUser != "admin"){
                             error.innerHTML = "* Du er ikke en administrator!";
                         }else{
-                            localStorage.setItem("login", JSON.stringify(loggedinUser));
+                            localStorageSetter(loggedIn, loggedinUser);
                             window.location.href = "../index.html";
                         }
                     }
@@ -110,10 +117,11 @@ function loginFunction() {
     }
 }
 
+
 // For å "øke" sikkerheten så må administrator brukere bli laget manuelt på server, i dette tilfellet så må de bli lagt inn i userList i koden
 // Ingen skal kunne lage en administrator bruker igjennom eksterne kilder.
 
-function createUser(u, p, e){
+function createUser(u, p, e, userList){
     const nyBruker = {
         username: u,
         password: p, 
@@ -127,11 +135,11 @@ function createUser(u, p, e){
         }
     }
     userList.push(nyBruker);
-    localStorage.setItem("userList", JSON.stringify(userList));
+    localStorageSetter(users, userList);
     location.reload();
 }
 
-function createSeller(u, p, e){
+function createSeller(u, p, e, userList){
     const nyBruker = {
         username: u,
         password: p, 
@@ -145,11 +153,11 @@ function createSeller(u, p, e){
         }
     }
     userList.push(nyBruker);
-    localStorage.setItem("userList", JSON.stringify(userList));
+    localStorageSetter(users, userList);
     location.reload();
 }
 
-function createUserFunc() {
+function createUserFunc(userList) {
     const error = document.getElementById("Cerrormsg");
     const username = document.getElementById("Cusername");
     const email = document.getElementById("Cemail");
@@ -166,9 +174,9 @@ function createUserFunc() {
                 let c = choice[i];
                 if(c.checked){
                     if(c.value == "1"){
-                        createUser(username.value, pass.value, email.value);
+                        createUser(username.value, pass.value, email.value, userList);
                     }else{
-                        createSeller(username.value, pass.value, email.value);   
+                        createSeller(username.value, pass.value, email.value, userList);
                     }
                 }
             }
@@ -178,8 +186,10 @@ function createUserFunc() {
 
 
 module.exports = {
-    loginFunction: loginFunction,
+    localStorageSetter: localStorageSetter,
     loginUser: loginUser,
     loginSeller: loginSeller,
-    loginAdmin: loginAdmin
+    loginAdmin: loginAdmin,
+    loginFunction: loginFunction,
+    createUserFunc: createUserFunc
 };
