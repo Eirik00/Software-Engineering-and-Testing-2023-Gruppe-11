@@ -20,7 +20,9 @@ describe("login with different users", () => {
 })
 
 describe("Create user function tests", () => {
-
+    let brukere = "brukere";
+    let data = [{}]
+    window.mock.setItem(brukere, JSON.stringify(data))
 });
 
 describe("loginfunction tests", () => {
@@ -34,7 +36,8 @@ describe("loginfunction tests", () => {
         document.getElementById('user').checked = true;
         document.getElementById('seller').checked = false;
         document.getElementById('admin').checked = false;
-        loginM.loginFunction();
+        loginM.loginFunction(test);
+        localStorage.removeItem(test)
 
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })
@@ -44,7 +47,8 @@ describe("loginfunction tests", () => {
         document.getElementById('user').checked = false;
         document.getElementById('seller').checked = true;
         document.getElementById('admin').checked = false;
-        loginM.loginFunction();
+        loginM.loginFunction(test);
+        localStorage.removeItem(test)
 
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })
@@ -54,7 +58,8 @@ describe("loginfunction tests", () => {
         document.getElementById('user').checked = false;
         document.getElementById('seller').checked = false;
         document.getElementById('admin').checked = true;
-        loginM.loginFunction();
+        loginM.loginFunction(test);
+        localStorage.removeItem(test)
 
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })

@@ -51,7 +51,7 @@ function loginUser(username, password) {
 
 
 // Hoved login funksjonen
-function loginFunction(userList) {
+function loginFunction(userList, writeToLocalStorage = true) {
     const error = document.getElementById("errormsg");
     const username = document.getElementById("username");     // Henter ut html elementet med id=username
     const password = document.getElementById("password");     // Henter ut html elementet med id=password
@@ -85,10 +85,11 @@ function loginFunction(userList) {
                     };
                     if(choice[i].value == "1"){         // Her ser den etter hvilken value elementet med "checked" har
                         loginUser(username.value, password.value);  // om det er 1 så er det bruker login
-                        
-                        loggedinUser.typeUser = "user";
-                        localStorageSetter(loggedIn, loggedinUser);
-                        window.location.href = "../index.html";
+                        if(writeToLocalStorage) {
+                            loggedinUser.typeUser = "user";
+                            localStorageSetter(loggedIn, loggedinUser);
+                            window.location.href = "../index.html";
+                        }
                     }
                     else if (choice[i].value == "2"){
                         loginSeller(username.value, password.value);
@@ -96,9 +97,11 @@ function loginFunction(userList) {
                         if(loggedinUser.typeUser == "user"){
                             error.innerHTML = "* Du er ikke en seller";
                         }else{
-                            loggedinUser.typeUser = "seller";
-                            localStorageSetter(loggedIn, loggedinUser);
-                            window.location.href = "../index.html";
+                            if (writeToLocalStorage) {
+                                loggedinUser.typeUser = "seller";
+                                localStorageSetter(loggedIn, loggedinUser);
+                                window.location.href = "../index.html";
+                            }
                         }
                     }
                     else{
@@ -107,8 +110,10 @@ function loginFunction(userList) {
                         if(loggedinUser.typeUser != "admin"){
                             error.innerHTML = "* Du er ikke en administrator!";
                         }else{
-                            localStorageSetter(loggedIn, loggedinUser);
-                            window.location.href = "../index.html";
+                            if (writeToLocalStorage) {
+                                localStorageSetter(loggedIn, loggedinUser);
+                                window.location.href = "../index.html";
+                            }
                         }
                     }
                 }
@@ -121,7 +126,7 @@ function loginFunction(userList) {
 // For å "øke" sikkerheten så må administrator brukere bli laget manuelt på server, i dette tilfellet så må de bli lagt inn i userList i koden
 // Ingen skal kunne lage en administrator bruker igjennom eksterne kilder.
 
-function createUser(u, p, e, userList){
+function createUser(u, p, e, userList, writeToLocalStorage = true){
     const nyBruker = {
         username: u,
         password: p, 
@@ -134,12 +139,14 @@ function createUser(u, p, e, userList){
             return;
         }
     }
-    userList.push(nyBruker);
-    localStorageSetter(users, userList);
-    location.reload();
+    if (writeToLocalStorage) {
+        userList.push(nyBruker);
+        localStorageSetter(users, userList);
+        location.reload();
+    }
 }
 
-function createSeller(u, p, e, userList){
+function createSeller(u, p, e, userList, writeToLocalStorage = true){
     const nyBruker = {
         username: u,
         password: p, 
@@ -152,12 +159,14 @@ function createSeller(u, p, e, userList){
             return;
         }
     }
-    userList.push(nyBruker);
-    localStorageSetter(users, userList);
-    location.reload();
+    if (writeToLocalStorage) {
+        userList.push(nyBruker);
+        localStorageSetter(users, userList);
+        location.reload();
+    }
 }
 
-function createUserFunc(userList) {
+function createUserFunc(userList, writeToLocalStorage = true) {
     const error = document.getElementById("Cerrormsg");
     const username = document.getElementById("Cusername");
     const email = document.getElementById("Cemail");
@@ -174,9 +183,9 @@ function createUserFunc(userList) {
                 let c = choice[i];
                 if(c.checked){
                     if(c.value == "1"){
-                        createUser(username.value, pass.value, email.value, userList);
+                        createUser(username.value, pass.value, email.value, userList, writeToLocalStorage);
                     }else{
-                        createSeller(username.value, pass.value, email.value, userList);
+                        createSeller(username.value, pass.value, email.value, userList, writeToLocalStorage);
                     }
                 }
             }
