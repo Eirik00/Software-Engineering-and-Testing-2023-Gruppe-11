@@ -8,6 +8,8 @@
     },
     "jest": {
         "testEnvironment": "jest-environment-jsdom",
-        "setupFilesAfterEnv": ["./unit-testing/setupTests.js"]
+        "setupFilesAfterEnv": [
+            "./unit-testing/setupTests.js"
+        ]
     }
 }
