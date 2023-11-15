@@ -6,7 +6,8 @@
         <title>Marketplace</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+        <script src="../backend/createtour.js"></script>
+        <script src="../backend/createrandomtours.js"></script>
     </head>
     <body>
         <header>
@@ -23,50 +24,31 @@
                 <script src="../backend/logout.js"></script>
             </nav>
         </header>
-
-        <!-- Viser de fire nyeste turene-->
-
-        <h2 class="title">New tours</h2>
-        <div id="tours">
-            
-            <div class="tour" id="tour1">
-                <h2 class="name" id="name1"></h2>
-                <p class="desc" id="desc1"></p>
-                <p class="price" id="price1"></p>
-                <p class="accessibility" id="accessibility1"></p>
+        <!-- Viser de fire mest populære turene-->
+        <main>
+            <h2 class="title">Popular Tours</h2>
+            <div id="Ptours" class="tourDisp">
             </div>
 
-            <div class="tour" id="tour2">
-                <h2 class="name" id="name2"></h2>
-                <p class="desc" id="desc2"></p>
-                <p class="price" id="price2"></p>
-                <p class="accessibility" id="accessibility2"></p>
+            <!-- Viser de fire nyeste turene-->
+
+            <h2 class="title">New Tours</h2>
+            <div id="Ntours" class="tourDisp">
             </div>
 
-            <div class="tour" id="tour3">
-                <h2 class="name" id="name3"></h2>
-                <p class="desc" id="desc3"></p>
-                <p class="price" id="price3"></p>
-                <p class="accessibility" id="accessibility3"></p>
+
+            <h2 class="title">All Tours</h2>
+            <div id="Atours" class="tourDisp">
+
+            </div> <!-- Viser alle turer -->
+
+            <div id="pageDiv" class="pageDivC">
             </div>
 
-            <div class="tour" id="tour4">
-                <h2 class="name" id="name4"></h2>
-                <p class="desc" id="desc4"></p>
-                <p class="price" id="price4"></p>
-                <p class="accessibility" id="accessibility4"></p>
-            </div>
-        </div>
 
-
-        <h2 class="title">All tours</h2>
-        <div id="Alltours" class="">
-            
-        </div> <!-- Viser alle turer -->
-
-        <script src="../backend/get_tours.js"></script> 
-        <!-- Legger script her for at den skal leses inn etter at HTML taggene er opprettet-->
-       
+            <script src="../backend/get_tours.js"></script> 
+            <!-- Legger script her for at den skal leses inn etter at HTML taggene er opprettet-->
+        </main>
         
         <footer>
             <p>&copy; 2023 Our Marketplace</p>

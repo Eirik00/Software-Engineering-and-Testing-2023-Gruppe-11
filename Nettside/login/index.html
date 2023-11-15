@@ -17,8 +17,6 @@
                     <li><a href="#">Cart <i class="fa fa-shopping-cart icon"></i></a></li>
                     <li><a href="../new-tour/index.html">Create New Tour <i class="fa fa-cloud-upload icon"></i></a></li>
                 </ul>
-                <div id="loginornot"></div>
-                <script src="../backend/logout.js"></script>
             </nav>
         </header>
         <div id="center">
@@ -43,7 +41,7 @@
                         <a>Passord:</a>
                         <input type="password" id="password">
                     </div>
-                    <input type="button" value="Submit" onclick="loginFunction(preset);">
+                    <input type="button" value="Submit" onclick="loginFunction(userList);">
                     <p id="errormsg"></p>
                 </form>
             </div>
@@ -74,7 +72,7 @@
                         <a>Bekreft Passord:</a>
                         <input type="password" id="Cfirmpassword">
                     </div>
-                    <input type="button" value="Submit" onclick="createUserFunc(preset);">
+                    <input type="button" value="Submit" onclick="createUserFunc(userList);">
                     <p id="Cerrormsg"></p>
                 </form>
             </div>

@@ -7,6 +7,7 @@ class Tour {
       this.price = price;
       this.img = img;
       this.accessibility = accessibility;
+      this.click = Math.floor(Math.random() * 10000);
     }
   }
 

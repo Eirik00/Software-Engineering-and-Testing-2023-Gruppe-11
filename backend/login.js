@@ -1,4 +1,4 @@
-var preset = [
+var userList = [
 //////////////////[Predefined users]///////////////////// [syntax]
 {                                                      // {
     username: "AverageJoe2",                           //   username: "{UserName}",
@@ -15,20 +15,43 @@ var preset = [
     password: "adminPass123",                          //
     email:    "adminguy@company.com",                  //
     typeUser: "admin"                                  //
-}                                                      //
+},                                                      //
 /////////////////////////////////////////////////////////
 
+    
+// [Ekstra selgere for tilfeldig tour generasjonen] //
+{
+    username: "GuideQuest",
+    password: "Gu1dQst",
+    email:    "feedback@guidequest.com",
+    typeUser: "seller",
+},{
+    username: "ExploreMasters",
+    password: "exploreMstr12",
+    email:    "ExploreMasters@gmail.com",
+    typeUser: "seller",
+},{
+    username: "RoamExperts",
+    password: "icanttype23",
+    email:    "George@rmExperts.no",
+    typeUser: "seller",
+},{
+    username: "VoyageExperts",
+    password: "Ahoy56",
+    email:    "VoyageExp@hotmail.com",
+    typeUser: "seller",
+}
 ];
 
-const users = "preset"
+const users = "userList" // det er mer oversiktelig om denne heter userList da den omfatter userlist
 const loggedIn = "login"
 
 function localStorageSetter(key, list) {
     localStorage.setItem(key, JSON.stringify(list));
 }
 
-if(localStorage.getItem("preset") !== null){
-    preset = JSON.parse(localStorage.getItem("preset"));
+if(localStorage.getItem(users) !== null){
+    userList = JSON.parse(localStorage.getItem(users));
 }
 
 // Denne prosessen kan være tungvindt siden dette må gjøres via javascript. Den er heller ikke sikker men det eneste måten vi ser mulig foreløpig.
@@ -192,13 +215,13 @@ function createUserFunc(userList, writeToLocalStorage = true) {
         }
     }
 }
-
-
-module.exports = {
-    localStorageSetter: localStorageSetter,
-    loginUser: loginUser,
-    loginSeller: loginSeller,
-    loginAdmin: loginAdmin,
-    loginFunction: loginFunction,
-    createUserFunc: createUserFunc
-};
+if (typeof window === "undefined") {
+    module.exports = {
+        localStorageSetter: localStorageSetter,
+        loginUser: loginUser,
+        loginSeller: loginSeller,
+        loginAdmin: loginAdmin,
+        loginFunction: loginFunction,
+        createUserFunc: createUserFunc
+    };
+}

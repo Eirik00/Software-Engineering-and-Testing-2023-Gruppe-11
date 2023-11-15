@@ -1,67 +1,126 @@
-//predefined tours
-            const allTours = JSON.parse(localStorage.getItem("tourList"));
-            allTours.reverse(); //slik at de nyligst opprettede turene vises, fremfor de eldste
+const newTours = document.getElementById("Ntours");
+const newToursList = tourList.slice(tourList.length-4, tourList.length+4);
+const popTours = document.getElementById("Ptours");
+const popToursList = tourList.sort(function(a, b){
+    return a.click - b.click;
+}).slice(tourList.length-4, tourList.length+4);
+const allTours = document.getElementById("Atours");
+const allToursList = tourList;
 
-            const displayNames = ["name1", "name2", "name3", "name4"];
-            const displayDesc = ["desc1", "desc2", "desc3", "desc4"];
-            const displayPrices = ["price1", "price2", "price3", "price4"];
-            const displayAccessibility = ["accessibility1", "accessibility2", "accessibility3", "accessibility4"];
-
-            for (let i = 0; i < displayNames.length; i++){
-                let tempName = document.getElementById(displayNames[i]);
-                tempName.innerHTML = allTours[i].name;
-
-                let tempDesc = document.getElementById(displayDesc[i]);
-                tempDesc.innerHTML = allTours[i].description;
-
-                let tempPrice = document.getElementById(displayPrices[i]);
-                tempPrice.innerHTML = "pris: " + allTours[i].price + ".- kr";
-
-                let tempAccessibility = document.getElementById(displayAccessibility[i]);
-              
-                if (allTours[i].accessibility == true){
-                    tempAccessibility.innerHTML = "Handicap-Tilrettelagt: Ja"
-                }
-                else {tempAccessibility.innerHTML = "Handicap-Tilrettelagt: Nei"}
-            }
-
-            function displayAllTours(tour){
-                let newdiv = document.createElement("div");
-                newdiv.classList.add("tour");
-
-                let newdivName = document.createElement("h2");
-                newdivName.classList.add("name");
-                newdivName.innerHTML = tour.name;
-                newdiv.appendChild(newdivName);
-
-                let newdivDesc = document.createElement("p");
-                newdivDesc.classList.add("desc");
-                newdivDesc.innerHTML = tour.description;
-                newdiv.appendChild(newdivDesc);
-
-                let newdivPrice = document.createElement("p");
-                newdivPrice.classList.add("price");
-                newdivPrice.innerHTML = "Pris: " + tour.price + ".- kr";
-                newdiv.appendChild(newdivPrice);
-
-                let newdivAcc = document.createElement("p");
-                newdivAcc.classList.add("accessibility");
-                if (tour.accessibility == true){
-                    newdivAcc.innerHTML = "Handicap-Tilrettelagt: Ja"
-                }
-                else {newdivAcc.innerHTML = "Handicap-Tilrettelagt: Nei"}
-                newdiv.appendChild(newdivAcc);
-
-                
-                let allToursdiv = document.getElementById("Alltours");
-                allToursdiv.appendChild(newdiv);
-            }
-
-            
-            for (let i = 0; i < allTours.length; i++) {
-                displayAllTours(allTours[i]);
-            }
-            
+const pageSlider = document.getElementById("pageDiv");
 
 
-            console.log("funker");
+// New Tours
+for(let i=0;i<newToursList.length;i++){
+    let nw = document.createElement("div");
+    nw.classList.add("tour");
+    newTours.appendChild(nw);
+    
+    let nm = document.createElement("p");
+    nm.classList.add("name");
+    nm.innerHTML = newToursList[i].name;
+    nw.appendChild(nm);
+    
+    let nd = document.createElement("p");
+    nd.classList.add("desc");
+    if(newToursList[i].description.length > 250){
+        nd.innerHTML = newToursList[i].description.slice(0, 247) + "...";
+    }else{
+        nd.innerHTML = newToursList[i].description;
+    }
+    nw.appendChild(nd);
+    
+    let np = document.createElement("p");
+    np.classList.add("price");
+    np.innerHTML = "<b>Price: " + newToursList[i].price + " NOK</b>"
+    nw.appendChild(np);
+    
+    if(newToursList[i].accessibility == true){
+        nm.innerHTML = nm.innerHTML + " <i class='fa fa-wheelchair'></i>";
+    }
+}
+
+// Popular Tours
+for(let i=0;i<popToursList.length;i++){
+    let nw = document.createElement("div");
+    nw.classList.add("tour");
+    popTours.appendChild(nw);
+    
+    let nm = document.createElement("p");
+    nm.classList.add("name");
+    nm.innerHTML = popToursList[i].name;
+    nw.appendChild(nm);
+    
+    let nd = document.createElement("p");
+    nd.classList.add("desc");
+    if(popToursList[i].description.length > 250){
+        nd.innerHTML = popToursList[i].description.slice(0, 247) + "...";
+    }else{
+        nd.innerHTML = popToursList[i].description;
+    }
+    nw.appendChild(nd);
+    
+    let np = document.createElement("p");
+    np.classList.add("price");
+    np.innerHTML = "<b>Price: " + newToursList[i].price + " NOK</b>"
+    nw.appendChild(np);
+    
+    if(popToursList[i].accessibility == true){
+        nm.innerHTML = nm.innerHTML + " <i class='fa fa-wheelchair'></i>";
+    }
+}
+
+
+// All Tours
+const pages = Math.ceil(allToursList.length/4);
+
+function updatePage(pageNr){
+    while(allTours.firstChild){
+        allTours.removeChild(allTours.lastChild);
+    }
+    let loopNum = 0;
+    if(allToursList.length < pageNr*4){
+        loopNum = allToursList.length - (pageNr*4)+4;
+    }else{
+        loopNum = pageNr*4;
+    }
+    for(let i=0;i<loopNum;i++){
+        let ad = document.createElement("a");
+        ad.href = "tour/#"+i;
+        allTours.addChild(ad);
+        
+        let nw = document.createElement("div");
+        nw.classList.add("tour");
+        ad.appendChild(nw);
+
+        let nm = document.createElement("p");
+        nm.classList.add("name");
+        nm.innerHTML = allToursList[i].name;
+        nw.appendChild(nm);
+
+        let nd = document.createElement("p");
+        nd.classList.add("desc");
+        if(allToursList[i].description.length > 250){
+            nd.innerHTML = allToursList[i].description.slice(0, 247) + "...";
+        }else{
+            nd.innerHTML = allToursList[i].description;
+        }
+        nw.appendChild(nd);
+
+        let np = document.createElement("p");
+        np.classList.add("price");
+        np.innerHTML = "<b>Price: " + allToursList[i].price + " NOK</b>"
+        nw.appendChild(np);
+
+        if(allToursList[i].accessibility == true){
+            nm.innerHTML = nm.innerHTML + " <i class='fa fa-wheelchair'></i>";
+        }
+    }
+}
+
+for(let i=0;i<pages;i++){
+    const nw = document.createElement("p");
+    nw.innerHTML = "<a href='javascript:updatePage("+(i+1)+")'>"+(i+1)+"</a>";
+    pageSlider.appendChild(nw);
+}
+updatePage(1);
