@@ -87,7 +87,8 @@ function updatePage(pageNr){
     for(let i=0;i<loopNum;i++){
         let ad = document.createElement("a");
         ad.href = "tour/#"+i;
-        allTours.addChild(ad);
+        ad.style = "text-decoration: none; color: black;";
+        allTours.appendChild(ad);
         
         let nw = document.createElement("div");
         nw.classList.add("tour");
