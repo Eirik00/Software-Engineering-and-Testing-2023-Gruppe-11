@@ -162,8 +162,8 @@ function createUser(u, p, e, userList, writeToLocalStorage = true){
             return;
         }
     }
+    userList.push(nyBruker);
     if (writeToLocalStorage) {
-        userList.push(nyBruker);
         localStorageSetter(users, userList);
         location.reload();
     }
@@ -182,8 +182,8 @@ function createSeller(u, p, e, userList, writeToLocalStorage = true){
             return;
         }
     }
+    userList.push(nyBruker);
     if (writeToLocalStorage) {
-        userList.push(nyBruker);
         localStorageSetter(users, userList);
         location.reload();
     }
@@ -215,13 +215,11 @@ function createUserFunc(userList, writeToLocalStorage = true) {
         }
     }
 }
-if (typeof window === "undefined") {
     module.exports = {
         localStorageSetter: localStorageSetter,
         loginUser: loginUser,
         loginSeller: loginSeller,
         loginAdmin: loginAdmin,
         loginFunction: loginFunction,
-        createUserFunc: createUserFunc
+        createUserFunc: createUserFunc,
     };
-}
