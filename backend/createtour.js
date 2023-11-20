@@ -17,3 +17,7 @@ class Tour {
 function createTour(owner_id, name, description, price, img, accessibility){
     return new Tour(owner_id, name, description, price, img, accessibility);
 }
+
+module.exports = {
+    createTour: createTour
+}
