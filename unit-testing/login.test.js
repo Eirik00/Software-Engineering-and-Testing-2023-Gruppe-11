@@ -130,14 +130,6 @@ describe("loginfunction tests", () => {
         let error = document.getElementById("errormsg");
         expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
     })
-    /*
-    test("Error if username and or password is wrong for user", () => {});
-    test("Error if username and or password is wrong for seller", () => {});
-    test("Error if username and or password is wrong for admin", () => {});
-    test("Returning user if username and password matches for user", () => {});
-    test("Returning user if username and password matches for seller", () => {});
-    test("Returning user if username and password matches for admin", () => {});
-     */
 });
 
 

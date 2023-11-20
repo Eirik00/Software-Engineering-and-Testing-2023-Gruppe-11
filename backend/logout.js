@@ -1,10 +1,13 @@
 const login = JSON.parse(localStorage.getItem("login"));
+locals = localStorage;
 
-function loggOut(){
-    localStorage.removeItem("login");
-    location.reload();
+function loggOut(localstoring, reloadTrue = true){
+    localstoring.removeItem("login");
+    if(reloadTrue) {
+        location.reload();
+    }
 }
-        
+
 const d = document.getElementById("loginornot");
 if(login === null){
     let e = document.createElement("a");
@@ -17,7 +20,11 @@ if(login === null){
     e.innerHTML = "Velkommen "+login.username+" <i class='fa fa-user icon'></i>";
     d.appendChild(e);
     e = document.createElement("a");
-    e.href = "javascript:loggOut();";
+    e.href = "javascript:loggOut(locals);";
     e.innerHTML = "logg ut";
     d.appendChild(e);
+}
+
+module.exports = {
+    loggOut:loggOut
 }
