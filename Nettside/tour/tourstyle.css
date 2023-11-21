@@ -1,3 +1,28 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: space-around;
+    align-items: baseline;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+#atc {
+    padding: .3rem;
+    width: auto;
+    height: auto;
+    background-color: #3F3;
+    text-decoration: none;
+    color: #000;
+    border-radius: .2rem;
+}
+
+/* fra main style */
 /* Reset some default styles */
 * {
     margin: 0;
@@ -51,16 +76,6 @@ login {
     
 }
 
-/* Style the main content */
-main {
-    flex-grow: 1;
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 
 
 
@@ -84,60 +99,11 @@ footer {
     text-align: center;
     padding: 10px;
     width: 100%;
+    bottom: 0;
 }
 
 #loginornot {
     float: right;
 }
 
-
-.tour {
-    width: 25rem;
-    padding:2rem;
-    border: 1px solid #ddd;
-    margin: 2rem;
-    border-radius: 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    
-}
-
-.tour:hover {
-    background-color: #e4e3e3;
-}
-
-.tour p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.tour h2 {
-    font-size: 1.7rem;
-    margin-bottom: 2rem;
-}
-
-    
-.name {
-    font-weight: bold;
-    font-size: 2.4rem;
-}
-
-.title {
-    margin-left: 2rem;
-    margin-top: 5rem;
-    font-size: 2rem;
-}
-
-.tourDisp {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.pageDivC {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-}
-.pageDivC p {
-    margin: .5rem; 
-}
 

@@ -1,3 +1,8 @@
+let tourId = 0;
+if(localStorage.getItem("tourId") !== null){
+    tourId = localStorage.getItem("tourId");
+}
+
 // Denne fila lager tour objekter og håndterer de
 class Tour {
     constructor(owner_id, name, description, price, img, accessibility) {
@@ -8,6 +13,7 @@ class Tour {
       this.img = img;
       this.accessibility = accessibility;
       this.click = Math.floor(Math.random() * 10000);
+      this.tourid = tourId;
     }
   }
 
@@ -15,6 +21,8 @@ class Tour {
 
 // Denne funksjonen returnerer et nytt tour objekt
 function createTour(owner_id, name, description, price, img, accessibility){
+    tourId++;
+    localStorage.setItem("tourId", tourId);
     return new Tour(owner_id, name, description, price, img, accessibility);
 }
 

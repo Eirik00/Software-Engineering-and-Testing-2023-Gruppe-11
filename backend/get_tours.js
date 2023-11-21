@@ -12,9 +12,14 @@ const pageSlider = document.getElementById("pageDiv");
 
 // New Tours
 for(let i=0;i<newToursList.length;i++){
+    let ad = document.createElement("a");
+    ad.href = "tour/index.html#"+newToursList[i].tourid;
+    ad.style = "text-decoration: none; color: black;";
+    newTours.appendChild(ad);
+    
     let nw = document.createElement("div");
     nw.classList.add("tour");
-    newTours.appendChild(nw);
+    ad.appendChild(nw);
     
     let nm = document.createElement("p");
     nm.classList.add("name");
@@ -42,9 +47,14 @@ for(let i=0;i<newToursList.length;i++){
 
 // Popular Tours
 for(let i=0;i<popToursList.length;i++){
+    let ad = document.createElement("a");
+    ad.href = "tour/index.html#"+popToursList[i].tourid;
+    ad.style = "text-decoration: none; color: black;";
+    popTours.appendChild(ad);
+    
     let nw = document.createElement("div");
     nw.classList.add("tour");
-    popTours.appendChild(nw);
+    ad.appendChild(nw);
     
     let nm = document.createElement("p");
     nm.classList.add("name");
@@ -86,7 +96,7 @@ function updatePage(pageNr){
     }
     for(let i=0;i<loopNum;i++){
         let ad = document.createElement("a");
-        ad.href = "tour/#"+i;
+        ad.href = "tour/index.html#"+allToursList[i].tourid;
         ad.style = "text-decoration: none; color: black;";
         allTours.appendChild(ad);
         

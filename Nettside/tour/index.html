@@ -1,89 +1,38 @@
-<!-- Dette er siden til å vise de forskjellige turene -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-
-        <style>
-            #tours {
-                display:flex;
-                flex-direction: row;
-                padding:1rem;
-            }
-
-            .tour {
-                padding:2rem;
-                border-style:solid;
-                margin-left: 2rem;
-                border-radius: 1rem;
-                
-                
-            }
-                
-            .name {
-                font-weight: bold;
-                font-size: 2rem;
-            }
-
-
-            
-        </style>
-        
-    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Marketplace</title>
+        <link rel="stylesheet" href="tourstyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+        <header>
+            <h1>Welcome to Tour Guide Heaven</h1>
 
-   <!-- Ikke dynamisk, viser kun antall turer allerede opprettet i HTML, må endres-->
-        <div id="tours">
-            <div class="tour" id="tour1">
-                <p class="name" id="name1"></p>
-                <p class="desc" id="desc1"></p>
-                <p class="price" id="price1"></p>
-            </div>
-
-            <div class="tour" id="tour2">
-                <p class="name" id="name2"></p>
-                <p class="desc" id="desc2"></p>
-                <p class="price" id="price2"></p>
-            </div>
-
-            <div class="tour" id="tour3">
-                <p class="name" id="name3"></p>
-                <p class="desc" id="desc3"></p>
-                <p class="price" id="price3"></p>
-            </div>
-
-            <div class="tour" id="tour4">
-                <p class="name" id="name4"></p>
-                <p class="desc" id="desc4"></p>
-                <p class="price" id="price4"></p>
-            </div>
-        </div>
-
-        <script>
-
-            var allTours = [];
-            allTours = JSON.parse(localStorage.getItem("tourList"));
-            allTours.reverse(); //slik at de nyligst opprettede turene vises, fremfor de eldste
-
-            const displayNames = ["name1", "name2", "name3", "name4"];
-            const displayDesc = ["desc1", "desc2", "desc3", "desc4"];
-            const displayPrices = ["price1", "price2", "price3", "price4"];
-
-            for (let i = 0; i < localStorage.getItem("tourList").length; i++){
-                let tempName = document.getElementById(displayNames[i]);
-                tempName.innerHTML = allTours[i].name;
-
-                let tempDesc = document.getElementById(displayDesc[i]);
-                tempDesc.innerHTML = allTours[i].description;
-
-                let tempPrice = document.getElementById(displayPrices[i]);
-                tempPrice.innerHTML = "pris: " + allTours[i].price;
-            }
-
-
-            console.log("funker");
-
-        </script>
-      
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home <i class="fa fa-home icon"></i></a></li>
+                </ul>
+                <div id="loginornot"></div>
+                <script src="../../backend/logout.js"></script>
+            </nav>
+        </header>
+        <h1 id="tourName"></h1>
+        <main>
+            <p id="tourDesc"></p>
+            <p id="tourPrice"></p>
+            <img id="tourImg"/>
+            <a href="javascript:function()" id="atc">
+                <p>Add to Cart</p>
+            </a>
+        </main>
+        
+        <script src="../../backend/display_tour.js"></script>
+        
+        <footer>
+            <p>&copy; 2023 Our Marketplace</p>
+        </footer>
     </body>
 </html>
