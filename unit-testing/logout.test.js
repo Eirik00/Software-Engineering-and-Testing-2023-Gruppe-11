@@ -1,5 +1,7 @@
+const logOutMog = require("../backend/logout");
+
 test("logout", () => {
     window.mock.setItem("login", 1);
-    window.mock.removeItem("login")
+    logOutMog.loggOut(window.mock, false);
     expect(window.mock.getItem("login")).toBe();
 });
