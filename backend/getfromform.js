@@ -29,9 +29,6 @@ function saveTour(doLocalStorage = true) {
         error.innerHTML = "* Du må fylle ut alle feltene!"
     }
 }
-if (process.env.NODE_ENV !== "test") {
-    initializeTour();
-}
 
 /*
 Ikke ferdig
@@ -45,5 +42,6 @@ try{
     }
     
 }catch(err){
+    initializeTour();
     console.log("not node.js");
 }
