@@ -22,7 +22,7 @@ function saveTour(doLocalStorage = true) {
         error.innerHTML = "* Tur opprettet"
         if (doLocalStorage) {
             tourList.push(createTour(bruker.username, name, description, price, "", accessibility));
-            console.log("Tur opprettet")
+            console.log("Tur opprettet");
             localStorage.setItem("tourList", JSON.stringify(tourList)); // oppdaterer tur array lista
         }
     }else{
