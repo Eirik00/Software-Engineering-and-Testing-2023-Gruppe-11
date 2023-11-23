@@ -81,7 +81,7 @@ function loginFunction(userList, writeToLocalStorage = true) {
     const choice = document.getElementsByName("userChoice");  // Henter ut html elementer med NAVNET=userChoice
     
     if(username.value == "" || password.value == ""){
-        error.innerHTML = "* Brukernavn og/eller Passord må være utfylt!";
+        error.innerHTML = "* Username and/or password has not been entered!";
     }else{
         let fUser;
         for(let i=0;i<userList.length;i++){
@@ -89,13 +89,13 @@ function loginFunction(userList, writeToLocalStorage = true) {
                 if(userList[i].password == password.value){
                     fUser = userList[i];
                 }else{
-                    error.innerHTML = "* Feil brukernavn eller passord!";
+                    error.innerHTML = "* Wrong username or password!";
                 }
                 break;
             }
         }
         if(fUser === undefined){
-            error.innerHTML = "* Feil brukernavn eller passord!";
+            error.innerHTML = "* Wrong username or password!";
         }else{
             // Den må kjøre en loop igjennom choice, som er en liste, for å sjekke om hvilken som har attributten "checked"
             for (let i = 0; i< choice.length; i++){
@@ -118,7 +118,7 @@ function loginFunction(userList, writeToLocalStorage = true) {
                         loginSeller(username.value, password.value);
                         
                         if(loggedinUser.typeUser == "user"){
-                            error.innerHTML = "* Du er ikke en seller";
+                            error.innerHTML = "* You are not a seller";
                         }else{
                             if (writeToLocalStorage) {
                                 loggedinUser.typeUser = "seller";
@@ -131,7 +131,7 @@ function loginFunction(userList, writeToLocalStorage = true) {
                         loginAdmin(username.value, password.value,); // ellers er det admin
                         
                         if(loggedinUser.typeUser != "admin"){
-                            error.innerHTML = "* Du er ikke en administrator!";
+                            error.innerHTML = "* You are not an administrator!";
                         }else{
                             if (writeToLocalStorage) {
                                 localStorageSetter(loggedIn, loggedinUser);
@@ -158,7 +158,7 @@ function createUser(u, p, e, userList, writeToLocalStorage = true){
     };
     for(let i=0;i<userList.length;i++){
         if(userList[i].username == u){
-            document.getElementById("Cerrormsg").innerHTML = "* Denne brukeren finnes allerede!";
+            document.getElementById("Cerrormsg").innerHTML = "* This user does allready exists!";
             return;
         }
     }
@@ -178,7 +178,7 @@ function createSeller(u, p, e, userList, writeToLocalStorage = true){
     };
     for(let i=0;i<userList.length;i++){
         if(userList[i].username == u){
-            document.getElementById("Cerrormsg").innerHTML = "* Denne brukeren finnes allerede!";
+            document.getElementById("Cerrormsg").innerHTML = "* This user allready exists!";
             return;
         }
     }
@@ -197,10 +197,10 @@ function createUserFunc(userList, writeToLocalStorage = true) {
     const choice = document.getElementsByName("CuserChoice");
     
     if(username.value == "" || email.value == "" || pass.value == ""){
-        error.innerHTML = "* Alle feltene må være utfylt!";
+        error.innerHTML = "* All fields must be filled out!";
     }else{
         if(pass.value != document.getElementById("Cfirmpassword").value){
-            error.innerHTML = "* Passordene stemmer ikke!";
+            error.innerHTML = "* Passwords does not match!";
         }else{
             for(let i=0; i<choice.length; i++){
                 let c = choice[i];
@@ -216,13 +216,17 @@ function createUserFunc(userList, writeToLocalStorage = true) {
     }
 }
 
-if (process.env.NODE_ENV === "test") {
-    module.exports = {
-        localStorageSetter: localStorageSetter,
-        loginUser: loginUser,
-        loginSeller: loginSeller,
-        loginAdmin: loginAdmin,
-        loginFunction: loginFunction,
-        createUserFunc: createUserFunc,
-    };
+try{
+    if (process.env.NODE_ENV === "test") {
+        module.exports = {
+            localStorageSetter: localStorageSetter,
+            loginUser: loginUser,
+            loginSeller: loginSeller,
+            loginAdmin: loginAdmin,
+            loginFunction: loginFunction,
+            createUserFunc: createUserFunc,
+        };
+    }
+}catch(err){
+    return;
 }

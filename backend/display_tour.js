@@ -16,9 +16,13 @@ for(let i=0;i<tourList.length;i++){
 tourName.innerHTML = dispTour.name;
 tourDesc.innerHTML = dispTour.description;
 tourPrice.innerHTML = dispTour.price + ".- NOK";
+try{
+    if (process.env.NODE_ENV === "test") {
+        module.exports = {
 
-if (process.env.NODE_ENV === "test") {
-    module.exports = {
-        
+        }
     }
+    
+}catch(err){
+    return;
 }
