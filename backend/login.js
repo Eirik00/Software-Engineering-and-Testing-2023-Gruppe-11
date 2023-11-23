@@ -215,6 +215,8 @@ function createUserFunc(userList, writeToLocalStorage = true) {
         }
     }
 }
+
+if (process.env.NODE_ENV === "test") {
     module.exports = {
         localStorageSetter: localStorageSetter,
         loginUser: loginUser,
@@ -223,3 +225,4 @@ function createUserFunc(userList, writeToLocalStorage = true) {
         loginFunction: loginFunction,
         createUserFunc: createUserFunc,
     };
+}

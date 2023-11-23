@@ -26,6 +26,8 @@ function createTour(owner_id, name, description, price, img, accessibility){
     return new Tour(owner_id, name, description, price, img, accessibility);
 }
 
-module.exports = {
-    createTour: createTour
+if (process.env.NODE_ENV === "test") {
+    module.exports = {
+        createTour: createTour
+    };
 }

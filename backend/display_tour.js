@@ -17,4 +17,8 @@ tourName.innerHTML = dispTour.name;
 tourDesc.innerHTML = dispTour.description;
 tourPrice.innerHTML = dispTour.price + ".- NOK";
 
-console.log(dispTour);
+if (process.env.NODE_ENV === "test") {
+    module.exports = {
+        
+    }
+}
