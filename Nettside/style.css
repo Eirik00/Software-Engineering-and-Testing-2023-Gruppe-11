@@ -84,7 +84,9 @@ footer {
     text-align: center;
     padding: 10px;
     width: 100%;
+  
 }
+
 
 #loginornot {
     float: right;
@@ -141,3 +143,11 @@ footer {
     margin: .5rem; 
 }
 
+
+#new_tour {
+    align-self: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding-bottom: 12rem;
+}
