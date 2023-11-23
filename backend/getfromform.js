@@ -1,5 +1,5 @@
+var tourList = [];
 function initializeTour() {
-    var tourList = [];
     if (JSON.parse(localStorage.getItem("tourList")) !== null) {
         tourList = JSON.parse(localStorage.getItem("tourList"));
     }
