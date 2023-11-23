@@ -72,13 +72,13 @@ describe("Create user function tests", () => {
     test("Produces error when missing a field", () => {
         testData("Testbruker21", null, "Testpassord", "Testpassord", false, true, data, "C");
         let error = document.getElementById("Cerrormsg");
-        expect(error.innerHTML).toBe("* Alle feltene må være utfylt!");
+        expect(error.innerHTML).toBe("* All fields must be filled out!");
     });
 
     test("Produces error when passwords dont match", () => {
         testData("Testbruker21", "ole@hotmail.com", "Testpassord1", "Testpassord", false, true, data, "C");
         let error = document.getElementById("Cerrormsg");
-        expect(error.innerHTML).toBe("* Passordene stemmer ikke!");
+        expect(error.innerHTML).toBe("* Passwords does not match!");
     });
 });
 
@@ -90,16 +90,16 @@ describe("loginfunction tests", () => {
     test("Checking if error is produced correctly with user no username or pass", () => {
         testData("", null, "", null, true, false, null, "", false);
         let error = document.getElementById("errormsg");
-        expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
+        expect(error.innerHTML).toBe("* Username and/or password has not been entered!");
     })
     test("Checking if error is produced correctly with seller no username or pass", () => {
         testData("", null, "", null, false, true, null, "", false);
         let error = document.getElementById("errormsg");
-        expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
+        expect(error.innerHTML).toBe("* Username and/or password has not been entered!");
     })
     test("Checking if error is produced correctly with admin no username or pass", () => {
         testData("", null, "", null, false, false, null, "", true);
         let error = document.getElementById("errormsg");
-        expect(error.innerHTML).toBe("* Brukernavn og/eller Passord må være utfylt!");
+        expect(error.innerHTML).toBe("* Username and/or password has not been entered!");
     })
 });
