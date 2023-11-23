@@ -25,11 +25,13 @@ function loggOut(localstoring, reloadTrue = true){
         location.reload();
     }
 }
-
-if (process.env.NODE_ENV !== "test") {
-    initializeLoginStatus();
-}else{
-    module.exports = {
-        loggOut:loggOut
+try{
+    if (process.env.NODE_ENV == "test") {    
+        module.exports = {
+            loggOut:loggOut
+        }
     }
+}catch(err){
+    console.log("not node.js");
+    initializeLoginStatus();
 }

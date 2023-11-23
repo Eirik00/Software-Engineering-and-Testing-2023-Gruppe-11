@@ -39,7 +39,11 @@ function saveUser() {
     const user = loginFunction();
     localStorage.setItem(user);
 }*/
-
-if (process.env.NODE_ENV === "test") {
-    module.exports = {saveTour: saveTour};
+try{
+    if (process.env.NODE_ENV === "test") {
+        module.exports = {saveTour: saveTour};
+    }
+    
+}catch(err){
+    console.log("not node.js");
 }

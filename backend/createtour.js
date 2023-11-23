@@ -25,9 +25,12 @@ function createTour(owner_id, name, description, price, img, accessibility){
     localStorage.setItem("tourId", tourId);
     return new Tour(owner_id, name, description, price, img, accessibility);
 }
-
-if (process.env.NODE_ENV === "test") {
-    module.exports = {
-        createTour: createTour
-    };
+try{
+    if (process.env.NODE_ENV === "test") {
+        module.exports = {
+            createTour: createTour
+        };
+    }
+}catch(err){
+    console.log("not node.js");
 }
