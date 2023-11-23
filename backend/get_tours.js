@@ -72,7 +72,7 @@ for(let i=0;i<popToursList.length;i++){
     
     let np = document.createElement("p");
     np.classList.add("price");
-    np.innerHTML = "<b>Price: " + newToursList[i].price + " NOK</b>"
+    np.innerHTML = "<b>Price: " + popToursList[i].price + " NOK</b>"
     nw.appendChild(np);
     
     if(popToursList[i].accessibility == true){
