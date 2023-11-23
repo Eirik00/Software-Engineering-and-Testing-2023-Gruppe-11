@@ -45,5 +45,5 @@ try{
     }
     
 }catch(err){
-    return;
+    console.log("not node.js");
 }

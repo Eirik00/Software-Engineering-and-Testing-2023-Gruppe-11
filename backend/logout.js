@@ -32,5 +32,6 @@ try{
         }
     }
 }catch(err){
+    console.log("not node.js");
     initializeLoginStatus();
 }
