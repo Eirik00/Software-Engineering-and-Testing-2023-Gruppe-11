@@ -1,5 +1,5 @@
 const newTours = document.getElementById("Ntours");
-const newToursList = tourList.slice(tourList.length-4, tourList.length+4);
+const newToursList = tourList.slice(tourList.length-4, tourList.length+4).reverse();
 const popTours = document.getElementById("Ptours");
 const popToursList = tourList.sort(function(a, b){
     return a.click - b.click;
