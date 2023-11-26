@@ -10,13 +10,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #0f546e;
     font-family: Arial, sans-serif;
 }
 
 /* Style the header */
 header {
-    background-color: #333;
+    background-color:#0f256e;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -129,6 +129,14 @@ footer {
     font-size: 2rem;
 }
 
+h1 {
+    text-shadow: 4px 4px 2px rgba(110, 64, 15, 0.8);
+}
+
+h2.title {
+    color: white;
+
+}
 .tourDisp {
     display: flex;
     flex-wrap: wrap;
