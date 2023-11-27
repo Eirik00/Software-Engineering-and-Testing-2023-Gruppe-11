@@ -10,11 +10,11 @@ function initializeLoginStatus() {
         d.appendChild(document.createElement("login"));
     } else {
         let e = document.createElement("p");
-        e.innerHTML = "Velkommen " + login.username + " <i class='fa fa-user icon'></i>";
+        e.innerHTML = "Welcome " + login.username + " <i class='fa fa-user icon'></i>";
         d.appendChild(e);
         e = document.createElement("a");
         e.href = "javascript:loggOut(locals);";
-        e.innerHTML = "logg ut";
+        e.innerHTML = "logg out";
         d.appendChild(e);
     }
 }
