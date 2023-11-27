@@ -12,7 +12,7 @@ const pageSlider = document.getElementById("pageDiv");
 
 // New Tours
 for(let i=0;i<newToursList.length;i++){
-    let ad = document.createElement("a");
+    let newAtag = document.createElement("a");
     newAtag.href = "tour/index.html#"+newToursList[i].tourid;
     newAtag.style = "text-decoration: none; color: black;";
     newTours.appendChild(newAtag);
@@ -26,7 +26,7 @@ for(let i=0;i<newToursList.length;i++){
     newName.innerHTML = newToursList[i].name;
     newDiv.appendChild(newName);
     
-    let nd = document.createElement("p");
+    let newDesc = document.createElement("p");
     newDesc.classList.add("desc");
     if(newToursList[i].description.length > 250){
         newDesc.innerHTML = newToursList[i].description.slice(0, 247) + "...";
@@ -47,7 +47,7 @@ for(let i=0;i<newToursList.length;i++){
 
 // Popular Tours
 for(let i=0;i<popToursList.length;i++){
-    let ad = document.createElement("a");
+    let newAtag = document.createElement("a");
     newAtag.href = "tour/index.html#"+popToursList[i].tourid;
     newAtag.style = "text-decoration: none; color: black;";
     popTours.appendChild(newAtag);
@@ -61,7 +61,7 @@ for(let i=0;i<popToursList.length;i++){
     newName.innerHTML = popToursList[i].name;
     newDiv.appendChild(newName);
     
-    let nd = document.createElement("p");
+    let newDisc = document.createElement("p");
     newDesc.classList.add("desc");
     if(popToursList[i].description.length > 250){
         newDesc.innerHTML = popToursList[i].description.slice(0, 247) + "...";
@@ -95,7 +95,7 @@ function updatePage(pageNr){
         loopNum = pageNr*4;
     }
     for(let i=0;i<loopNum;i++){
-        let ad = document.createElement("a");
+        let newAtag = document.createElement("a");
         newAtag.href = "tour/index.html#"+allToursList[i].tourid;
         newAtag.style = "text-decoration: none; color: black;";
         allTours.appendChild(newAtag);
@@ -109,7 +109,7 @@ function updatePage(pageNr){
         newName.innerHTML = allToursList[i].name;
         newDiv.appendChild(newName);
 
-        let nd = document.createElement("p");
+        let newDesc = document.createElement("p");
         newDesc.classList.add("desc");
         if(allToursList[i].description.length > 250){
             newDesc.innerHTML = allToursList[i].description.slice(0, 247) + "...";
