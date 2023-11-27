@@ -61,14 +61,14 @@ for(let i=0;i<popToursList.length;i++){
     newName.innerHTML = popToursList[i].name;
     newDiv.appendChild(newName);
     
-    let newDisc = document.createElement("p");
+    let newDesc = document.createElement("p");
     newDesc.classList.add("desc");
     if(popToursList[i].description.length > 250){
         newDesc.innerHTML = popToursList[i].description.slice(0, 247) + "...";
     }else{
         newDesc.innerHTML = popToursList[i].description;
     }
-    newDiv.appendChild(nd);
+    newDiv.appendChild(newDesc);
     
     let newPrice = document.createElement("p");
     newPrice.classList.add("price");
@@ -116,7 +116,7 @@ function updatePage(pageNr){
         }else{
             newDesc.innerHTML = allToursList[i].description;
         }
-        newDiv.appendChild(nd);
+        newDiv.appendChild(newDesc);
 
         let newPrice = document.createElement("p");
         newPrice.classList.add("price");
